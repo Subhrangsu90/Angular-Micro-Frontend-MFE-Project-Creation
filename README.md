@@ -1,4 +1,4 @@
-# Angular Micro Frontend (MFE) Project Creation
+# [Angular Micro Frontend (MFE) Project Creation](https://blog.bitsrc.io/an-easy-to-follow-guide-to-create-angular-micro-frontends-9e6b7c0fff78)
 
 Creating an Angular Micro-Frontend (MFE) project involves several steps and configurations. Here is a detailed guide on how to set up an Angular MFE project using the Angular CLI and Angular Architects' module federation.
 
