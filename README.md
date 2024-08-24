@@ -15,7 +15,7 @@ cd [project-name]
 
 #### 2. Generate Applications
 
-Create the applications within the workspace. For instance, you can create three applications:
+Create the applications within the workspace(project directory). For instance, you can create three applications:
 
 ```sh
 ng g application shell --routing --style=scss
