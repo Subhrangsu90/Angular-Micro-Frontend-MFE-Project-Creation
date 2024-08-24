@@ -278,6 +278,78 @@ Ensure you have the necessary dependencies in `package.json`:
 }
 
 ```
+#### 6. Modify the Created Application's Webpack Configuration
+
+In each created application, you need to modify the webpack configuration `webpack.config.js` to include module federation and shared mappings:
+
+```js
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const mf = require("@angular-architects/module-federation/webpack");
+const path = require("path");
+const share = mf.share;
+
+const sharedMappings = new mf.SharedMappings();
+sharedMappings.register(path.join(__dirname, "../../tsconfig.json"), [
+	/* mapped paths to share */
+]);
+
+module.exports = {
+	output: {
+		uniqueName: "[application-name]",
+		publicPath: "auto",
+	},
+	optimization: {
+		runtimeChunk: false,
+	},
+	resolve: {
+		alias: {
+			...sharedMappings.getAliases(),
+		},
+	},
+	experiments: {
+		outputModule: true,
+	},
+	plugins: [
+		new ModuleFederationPlugin({
+			library: { type: "module" },
+
+			// For remotes (please adjust)
+			name: "[application-name]",
+			filename: "remoteEntry.js",
+			exposes: {
+				"./[module-name]":
+					"./projects/[application-name]/src/app/[module-name]/[module-name].module.ts",
+			},
+
+			shared: share({
+				"@angular/core": {
+					singleton: true,
+					strictVersion: true,
+					requiredVersion: "auto",
+				},
+				"@angular/common": {
+					singleton: true,
+					strictVersion: true,
+					requiredVersion: "auto",
+				},
+				"@angular/common/http": {
+					singleton: true,
+					strictVersion: true,
+					requiredVersion: "auto",
+				},
+				"@angular/router": {
+					singleton: true,
+					strictVersion: true,
+					requiredVersion: "auto",
+				},
+
+				...sharedMappings.getDescriptors(),
+			}),
+		}),
+		sharedMappings.getPlugin(),
+	],
+};
+```
 
 ### Summary
 
