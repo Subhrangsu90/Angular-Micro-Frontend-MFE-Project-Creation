@@ -399,8 +399,6 @@ For generating and managing different environments:
   ```
   These commands will serve your application in the staging or test environment for development.
 
-These commands will help you efficiently manage services and environments within your Angular project.
-
 ### Summary
 
 This guide outlines the process for creating an Angular Micro-Frontend (MFE) project. It includes steps to create a workspace and applications, add module federation, generate modules and components, and update configuration files for the shell project. This setup allows dynamic loading of remote applications using module federation.
