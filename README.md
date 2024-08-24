@@ -351,6 +351,56 @@ module.exports = {
 };
 ```
 
+### Point 7: Service-Specific Commands
+
+For generating and managing services:
+
+- **Generating a Service**:
+  ```bash
+  ng generate service [service-name]
+  ```
+  This command will create a new Angular service with the specified name.
+
+- **Building a Specific Service**:
+  ```json
+  "build:service1": "ng build --project=service1",
+  "build:service2": "ng build --project=service2"
+  ```
+  These commands will build the specified services within your Angular project.
+
+- **Serving a Specific Service**:
+  ```json
+  "serve:service1": "ng serve --project=service1",
+  "serve:service2": "ng serve --project=service2"
+  ```
+  These commands will serve the specified services for development.
+
+### Point 8: Environment-Specific Commands
+
+For generating and managing different environments:
+
+- **Generating an Environment**:
+  ```bash
+  ng generate environment [environment-name]
+  ```
+  This command will generate a new environment configuration file with the specified name.
+
+- **Building for Specific Environments**:
+  ```json
+  "build:staging": "ng build --configuration=staging",
+  "build:test": "ng build --configuration=test"
+  ```
+  These commands will build your Angular application for the staging or test environment.
+
+- **Serving Specific Environments**:
+  ```json
+  "serve:staging": "ng serve --configuration=staging",
+  "serve:test": "ng serve --configuration=test"
+  ```
+  These commands will serve your application in the staging or test environment for development.
+
+These commands will help you efficiently manage services and environments within your Angular project.
+
 ### Summary
 
 This guide outlines the process for creating an Angular Micro-Frontend (MFE) project. It includes steps to create a workspace and applications, add module federation, generate modules and components, and update configuration files for the shell project. This setup allows dynamic loading of remote applications using module federation.
