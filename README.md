@@ -381,7 +381,7 @@ For generating and managing different environments:
 
 - **Generating an Environment**:
   ```bash
-  ng generate environment [environment-name]
+  ng generate environments
   ```
   This command will generate a new environment configuration file with the specified name.
 
